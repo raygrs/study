@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruzadinha</title>
+    <link rel="stylesheet" href="/assets/css/style_Cruzadinha.css">
+</head>
+
+<body>
+    <section class="cruzadinha">
+        <div class="content">
+            <div class="dica">
+                <div class="dica_text">
+                    <div class="pnts"></div>
+                    <h2>Siga a dica e acerte o filme</h2>
+                    <input type="text" id="palavra" placeholder="Digite a palavra">
+                </div>
+                <div class="error"></div>
+
+                <div class="buttons">
+                    <button onclick="validar()">Verificar</button>
+                    <button onclick="submit()">Submit</button>
+                </div>
+
+                <div class="select">
+                    <select name="dicas" id="dicas" class="selectDicas" onchange="dicas()">
+                        <option value="1">Dica: 1</option>
+                        <option value="2">Dica: 2</option>
+                        <option value="3">Dica: 3</option>
+                        <option value="4">Dica: 4</option>
+                        <option value="5">Dica: 5</option>
+                        <option value="6">Dica: 6</option>
+                        <option value="7">Dica: 7</option>
+                        <option value="8">Dica: 8</option>
+                        <option value="9">Dica: 9</option>
+                        <option value="10">Dica: 10</option>
+                        <option value="11">Dica: 11</option>
+                        <option value="12">Dica: 12</option>
+                    </select>
+
+                    <div class="exibir"></div>
+                </div>
+
+                <div class="lista" id="styleDicas" style="display: none;">
+                    <ul id="Lista_dicas"></ul>
+                    <!-- // será a nossa dica atual -->
+                  </div>
+
+            </div>
+
+            <div class="content-tabela">
+                <div class="cronometro">
+                    <p class="relogio">00:00:00</p>
+                    <p>
+                        <button class="iniciar">iniciar</button>
+                        <button class="pausar">pausar</button>
+                        <button class="zerar">zerar</button>
+                </div>
+
+                <div class="tabela">
+                    <table>
+                        <tr>
+                            <!-- primeira linha -->
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0">1-</td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                        </tr>
+
+                        <tr>
+                            <!-- segunda linha -->
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0">2-</td>
+                            <td class="white validar" id="protetor_o"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="protetor_p"></td>
+                            <td class="white validar" id="protetor_r"></td>
+                            <td class="white validar" id="protetor_O"></td>
+                            <td class="white validar" id="protetor_t"></td>
+                            <td class="white validar" id="protetor_e"></td>
+                            <td class="white validar" id="protetor_T"></td>
+                            <td class="white validar" id="protetor_oo"></td>
+                            <td class="white validar" id="protetor_R"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0">3-</td>
+                            <td class="white validar" id="lupin_l"></td>
+                            <td class="white validar" id="lupin_u"></td>
+                            <td class="white validar" id="lupin_p"></td>
+                            <td class="white validar" id="lupin_i"></td>
+                            <td class="white validar" id="lupin_n"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                        </tr>
+
+                        <tr>
+                            <!-- Terceira linha -->
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0">4-</td>
+                            <td class="white validar" id="dna_d"></td>
+                            <td class="white validar" id="dna_n"></td>
+                            <td class="white validar" id="dna_a"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="do_d"></td>
+                            <td class="white validar" id="do_o"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="crime_c"></td>
+                            <td class="white validar" id="crime_r"></td>
+                            <td class="white validar" id="crime_i"></td>
+                            <td class="white validar" id="crime_m"></td>
+                            <td class="white validar" id="crime_e"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                        </tr>
+
+                        <tr>
+                            <!-- quarta linha -->
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="infiltrado_i"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0">5-</td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                        </tr>
+
+                        <tr>
+                            <!-- quinta linha -->
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0">6-</td>
+                            <td class="white validar" id="norbit_n"></td>
+                            <td class="white validar" id="norbit_o"></td>
+                            <td class="white validar" id="norbit_r"></td>
+                            <td class="white validar" id="norbit_b"></td>
+                            <td class="white validar" id="norbit_i"></td>
+                            <td class="white validar" id="norbit_t"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0">7-</td>
+                            <td class="white validar" id="crepusculo_c"></td>
+                            <td class="white validar" id="crepusculo_r"></td>
+                            <td class="white validar" id="crepusculo_e"></td>
+                            <td class="white validar" id="crepusculo_p"></td>
+                            <td class="white validar" id="crepusculo_u"></td>
+                            <td class="white validar" id="crepusculo_s"></td>
+                            <td class="white validar" id="crepusculo_C"></td>
+                            <td class="white validar" id="crepusculo_U"></td>
+                            <td class="white validar" id="crepusculo_l"></td>
+                            <td class="white validar" id="crepusculo_o"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                        </tr>
+
+                        <tr>
+                            <!-- sexta linha -->
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="O_infiltrado_f"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0">8-</td>
+                            <td class="white validar" id="jhon_j"></td>
+                            <td class="white validar" id="jhon_o"></td>
+                            <td class="white validar" id="jhon_h"></td>
+                            <td class="white validar" id="jhon_n"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="wick_w"></td>
+                            <td class="white validar" id="wick_i"></td>
+                            <td class="white validar" id="wick_c"></td>
+                            <td class="white validar" id="wick_k"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0">12-</td>
+                            <td class="vazio" id="0"></td>
+                        </tr>
+
+                        <tr>
+                            <!-- sétima linha -->
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0">9-</td>
+                            <td class="white validar" id="intocaveis_i"></td>
+                            <td class="white validar" id="intocaveis_n"></td>
+                            <td class="white validar" id="intocaveis_t"></td>
+                            <td class="white validar" id="intocaveis_o"></td>
+                            <td class="white validar" id="intocaveis_c"></td>
+                            <td class="white validar" id="intocaveis_a"></td>
+                            <td class="white validar" id="intocaveis_v"></td>
+                            <td class="white validar" id="intocaveis_e"></td>
+                            <td class="white validar" id="intocaveis_ii"></td>
+                            <td class="white validar" id="intocaveis_s"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="swat_a"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="titanic_t"></td>
+                            <td class="vazio" id="0"></td>
+                        </tr>
+
+                        <tr>
+                            <!-- oitava linha -->
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="infiltrado_l"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="swat_t"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="titanic_I"></td>
+                            <td class="vazio" id="0"></td>
+                        </tr>
+
+                        <tr>
+                            <!-- nona linha -->
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="infiltrado_t"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="titanic_T"></td>
+                            <td class="vazio" id="0"></td>
+                        </tr>
+
+                        <tr>
+                            <!-- decima linha -->
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="infiltrado_r"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0">10-</td>
+                            <td class="white validar" id="bob_b"></td>
+                            <td class="white validar" id="bob_o"></td>
+                            <td class="white validar" id="bob_B"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="esponja_e"></td>
+                            <td class="white validar" id="esponja_s"></td>
+                            <td class="white validar" id="esponja_p"></td>
+                            <td class="white validar" id="esponja_o"></td>
+                            <td class="white validar" id="esponja_n"></td>
+                            <td class="white validar" id="esponja_j"></td>
+                            <td class="white validar" id="esponja_a"></td>
+                            <td class="vazio" id="0"></td>
+
+                        </tr>
+                        <tr>
+                            <!-- décima primeira linha -->
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0">11-</td>
+                            <td class="white validar" id="alvin_a"></td>
+                            <td class="white validar" id="alvin_l"></td>
+                            <td class="white validar" id="alvin_v"></td>
+                            <td class="white validar" id="alvin_i"></td>
+                            <td class="white validar" id="alvin_n"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="alvin_e"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="os_o"></td>
+                            <td class="white validar" id="os_s"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="esquilos_e"></td>
+                            <td class="white validar" id="esquilos_s"></td>
+                            <td class="white validar" id="esquilos_q"></td>
+                            <td class="white validar" id="esquilos_u"></td>
+                            <td class="white validar" id="esquilos_i"></td>
+                            <td class="white validar" id="esquilos_l"></td>
+                            <td class="white validar" id="esquilos_o"></td>
+                            <td class="white validar" id="esquilos_S"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="titanic_n"></td>
+                            <td class="vazio" id="0"></td>
+                        </tr>
+
+                        <tr>
+                            <!-- décima segunda linha -->
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="infiltrado_d"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="titanic_i"></td>
+                            <td class="vazio" id="0"></td>
+                        </tr>
+
+                        <tr>
+                            <!-- Décima terceira linha -->
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="infiltrado_o"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="vazio" id="0"></td>
+                            <td class="white validar" id="titanic_c"></td>
+                            <td class="vazio" id="0"></td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+        
+
+    </section>
+<script src="/assets/js/main_Cruzadinha.js"></script>
+</body>
+
+</html>
