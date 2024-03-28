@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALGORITMOS</title>
+</head>
+<body>
+    Nota 1: <input id="N1"><br>
+    Nota 2: <input id="N2"><br>
+    <button onclick="calcular()">Ver média</button>
+    <div id="exibir"></div>
+    
+</body>
+</html>
+<script>
+    function calcular(){
+        var n1 = Number (N1.value);
+        var n2 = Number(N2.value);
+        var media = (n1 + n2) / 2;
+
+        exibir.innerHTML = `A sua média é ${media}`;
+
+        if(media >= 5){
+            exibir.innerHTML += `#partiuestágio`
+        }else{
+            exibir.innerHTML += `#partiutentardenovo`
+        }
+        
+    }
+</script>

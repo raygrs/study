@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    ki inicial <input id="inicial"><br>
+    Golpe <input id="golpe"><br>
+    <button onclick="calcular()">Analisar</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function calcular(){
+        let ki_inicial = Number (inicial.value);
+        let qtd_golpe = Number (golpe.value);
+        let regenerar = ki_inicial * 0.10;
+        let forca = qtd_golpe / (ki_inicial - regenerar)
+
+        if(forca < 5){
+            exibir.innerHTML = `Você morreu `
+        }else{
+            exibir.innerHTML = `Parabéns você sobreviveu ${forca}`
+        }
+
+    }
+</script>

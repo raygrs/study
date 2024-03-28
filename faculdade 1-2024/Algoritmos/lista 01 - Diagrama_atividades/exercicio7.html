@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Salário: <input id="salario"><br>
+    Faculdade: <input id="faculdade"><br>
+    <button onclick="calcular()">Analisar</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function calcular(){
+        let Salario = Number (salario.value);
+        let mensalidade = Number (faculdade.value);
+        let liquido = (Salario - mensalidade) ;
+
+        if(liquido < 15){
+            exibir.innerHTML = `#Controletotal`
+        }else if(liquido <= 20){
+            exibir.innerHTML = `#ragazzonosabado`
+        }else if(liquido < 25){
+            exibir.innerHTML = `#cinemanamorada`
+        }else if(liquido <= 30){
+            exibir.innerHTML = `#novogame`
+        }else{
+            exibir.innerHTML = `#tobonito`
+        }
+    }
+</script>

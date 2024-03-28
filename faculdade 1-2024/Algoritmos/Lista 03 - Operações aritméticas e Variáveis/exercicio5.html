@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>SPTECH</h2>
+    Continuada: <input id="Continuada"><br>
+    Semestral: <input id="Semestral"><br>
+    Nome: <input type="text" id="Nome"><br>
+    <button onclick="calcular()">Calcular média</button>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    function calcular() {
+        let nome = Nome.value;
+        let continuada = Number(Continuada.value) * 0.60;
+        let semestral = Number(Semestral.value) * 0.40;
+        let media = continuada + semestral
+
+        exibir.innerHTML = `A média de ${nome} será de ${media}`;
+    }
+</script>

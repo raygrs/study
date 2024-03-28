@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmos</title>
+</head>
+<body>
+    Time: <input id="nome"><br>
+    Titulos: <input id="Titulos"><br>
+    <button onclick="analisar()">Amo meu time</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function analisar(){
+        let time = nome.value;
+        let titulo = Number (Titulos.value);
+
+        exibir.innerHTML = `O time ${time} tem ${titulo} titulos`
+    }
+</script>

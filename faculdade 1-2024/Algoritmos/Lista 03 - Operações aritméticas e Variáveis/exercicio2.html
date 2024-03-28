@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Todo mundo adora pizza</h2>
+
+    valor pizza: <input id="Valor"><br>
+    Quantidade de amigos: <input id="Qtd"><br>
+    <button onclick="calcular()">#LovePizza</button> 
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function calcular(){
+        let valor = Number (Valor.value);
+        let qtd = Number (Qtd.value);
+        let valor_por_amigo = valor / qtd;
+
+        exibir.innerHTML = `Cada um dos ${qtd} amigos vai pagar R$${valor_por_amigo}`;
+    }
+</script>

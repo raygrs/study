@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Guerreiro: <input id="nome"><br>
+    Ki normal: <input id="ki_normal"><br>
+    <button onclick="verki()">Ver ki em cada forma</button>
+</body>
+</html>
+<script>
+    function verki(){
+        let Guerreiro = nome.value;
+        let ki = Number (ki_normal.value);
+        let ss = ki * 50;
+        let ss2 = ki * 100;
+
+        alert(` Olá guerreiro ${Guerreiro} sua força em Super sayajin é ${ss}`);
+
+        alert(` Olá guerreiro ${Guerreiro} sua força em Super sayajin 2 é ${ss2}`);
+    }
+</script>

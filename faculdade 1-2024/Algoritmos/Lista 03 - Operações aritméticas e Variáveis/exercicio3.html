@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Bilhete único</h2>
+
+    Valor da passagem: <input id="Valor"><br>
+    Quantidade de viagens por mês: <input id="Qtd"><br>
+    <button onclick="calcular()">Ver economia</button>
+</body>
+</html>
+<script>
+    function calcular(){
+        let valor = Number (Valor.value);
+        let qtd = Number (Qtd.value);
+        let comum = valor * qtd;
+        let estudante = (valor * qtd) / 2;
+
+        alert (`Você economizará R$ ${comum - estudante}`);
+    }
+</script>

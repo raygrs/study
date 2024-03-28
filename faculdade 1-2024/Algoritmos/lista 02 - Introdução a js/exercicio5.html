@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>PET</h2>
+    Digite o nome dos Pets que já teve (um por vez) <input id="pet">
+    <button id="contador" value="" onclick="verpet()">Ver informações do Pet</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function verpet(){
+        let Pet = pet.value;
+        let Contador = (contador.value += 'I') ;
+        
+
+        exibir.innerHTML += `Este é o pet ${Contador}, seu nome é ${Pet}<br>`
+    }
+</script>

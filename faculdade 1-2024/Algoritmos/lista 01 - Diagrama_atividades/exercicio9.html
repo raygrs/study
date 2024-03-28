@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    nota 1: <input id="n1"><br>
+    nota 2: <input id="n2"><br>
+    frequencia: <input id="frequencia">
+    <button onclick="analisar()">Analisar</button>
+    <div id="exibir"></div>
+
+
+</body>
+
+</html>
+<script>
+    function analisar() {
+        let N1 = Number(n1.value);
+        let N2 = Number(n2.value);
+        let freq = Number(frequencia.value);
+        let media = (N1 + N2 / 2);
+
+
+        if (N1 <= 10) {
+            if (N2 <= 10) {
+                if (freq <= 100) {
+                    if (media >= 6) {
+                        if (freq >= 70) {
+                            exibir.innerHTML = `Parabéns, aprovado`
+                        } else {
+                            exibir.innerHTML = `Infelizmente reprovado`
+                        }
+                    } else if (media < 6) {
+                        if (freq < 70) {
+                            exibir.innerHTML = `Infelizmente reprovado`
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+</script>

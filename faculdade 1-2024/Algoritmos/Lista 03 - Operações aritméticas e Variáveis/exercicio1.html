@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmos</title>
+</head>
+
+<body>
+    <h2>Quantos anos falta para você se aposentar</h2>
+    Idade: <input id="Idade"><br>
+    <button onclick="AposentadoriaHomem()">Aposentadoria Homem</button>
+    <button onclick="AposentadoriaMulher()">Aposentadoria Mulher</button>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    function AposentadoriaHomem() {
+        let idade = Number(Idade.value);
+        let aposentadoria = 70 - idade;
+
+        exibir.innerHTML = `Falta ${aposentadoria} anos para você se aposentar`;
+
+    }
+
+    function AposentadoriaMulher() {
+        let idade = Number(Idade.value);
+        let aposentadoria = 60 - idade;
+
+        exibir.innerHTML = `Falta ${aposentadoria} anos para você se aposentar`;
+
+    }
+</script>

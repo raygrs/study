@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALGORITMOS</title>
+</head>
+<body>
+    Idade: <input id="idade"><br>
+    Sexo: <input id="sexo"><br>
+    <button onclick="analisar()">Analisar</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function analisar(){
+        var Idade = Number (idade.value);
+        var Sexo = sexo.value;
+
+        if(Sexo == 'Masculino'){
+            if(Idade < 18){
+                exibir.innerHTML = `Você é homem e menino`
+            }else{
+                exibir.innerHTML = `Você é homem maior de idade`
+            }
+        }else{
+            if(Idade < 18){
+                exibir.innerHTML = `Você mulher e menina`
+            }else{
+                exibir.innerHTML = `Você é mulher maior de idade`
+            }
+        }
+    }
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Estado: <input id="Estado"><br>
+    Filhos: <input id="qtd_filho"><br>
+    <button onclick="analisar()">Analisar</button>
+    <div id="exibir"></div> 
+</body>
+</html>
+<script>
+    function analisar(){
+        var estado = Estado.value;
+        var filho = Number (qtd_filho.value);
+
+        if(filho <= 15){
+             if(filho == 3){
+                exibir.innerHTML = `#nãotemtv  #nãoteminternet #nãotemvideogame`
+            }else if(filho == 2){
+                exibir.innerHTML = `#nãotemtv`
+            }
+            else if(filho == 1){
+                exibir.innerHTML = `#nãotemvideogame`
+            }else if(filho > 3){
+                exibir.innerHTML = `cresceiemultiplicaivos`
+            }
+            else{
+            exibir.innerHTML = `#tv  #internet  #videogame`
+        }
+        }
+        
+    }
+</script>

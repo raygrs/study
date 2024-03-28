@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Peso: <input id="peso"><br>
+    Altura: <input id="altura"><br>
+    <button onclick="falar()">Fale comigo</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function falar(){
+        let Peso = Number (peso.value);
+        let Altura = Number (altura.value);
+
+        exibir.innerHTML = `Você pesa ${Peso} e tem ${Altura} de altura`
+    }
+</script>

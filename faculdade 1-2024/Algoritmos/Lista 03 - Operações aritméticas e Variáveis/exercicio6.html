@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Numero 1: <input id="N1"><br>
+    Número 2: <input id="N2"><br>
+    <button onclick="Somar()">Somar</button>
+    <button onclick="Multiplicar()">Multiplicar</button>
+    <button onclick="Subtrair()">Subtrair</button>
+    <button onclick="Dividir()">Dividir</button>
+
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    function Somar() {
+        let n1 = Number(N1.value);
+        let n2 = Number(N2.value);
+        let soma = n1 + n2;
+
+        exibir.innerHTML = `A soma entre ${n1} e ${n2} é ${soma}`
+    }
+
+    function Multiplicar() {
+        let n1 = Number(N1.value);
+        let n2 = Number(N2.value);
+        let Multiplicacao = n1 * n2;
+
+        exibir.innerHTML = `A Multiplicação entre ${n1} e ${n2} é ${Multiplicacao}`
+    }
+
+    function Subtrair() {
+        let n1 = Number(N1.value);
+        let n2 = Number(N2.value);
+        let subtracao = n1 - n2;
+
+        exibir.innerHTML = `A subtração entre ${n1} e ${n2} é ${subtracao}`
+    }
+
+    function Dividir() {
+        let n1 = Number(N1.value);
+        let n2 = Number(N2.value);
+        let divisao = n1 / n2;
+
+        exibir.innerHTML = `A divisao entre ${n1} e ${n2} é ${divisao}`
+    }
+</script>

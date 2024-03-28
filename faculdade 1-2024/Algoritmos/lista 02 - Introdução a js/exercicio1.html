@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmos</title>
+</head>
+<body>
+    <h2>Cidade natal</h2>
+    Cidade Natal: <input id="cidade_Natal"><br>
+    Ano de nascimento: <input id="ano_nasc"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function cadastrar(){
+        let city = cidade_Natal.value;
+        let dtNasc = ano_nasc.value;
+
+        exibir.innerHTML = `Você nasceu na cidade de ${city} em ${dtNasc}`
+    }
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Rua: <input id="endereco"> <br>
+    Número da casa: <input id="numero"><br>
+    <button onclick="analisar()">Ver endereço</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function analisar(){
+        let rua = endereco.value;
+        let Numero = Number(numero.value);
+
+        exibir.innerHTML = `Seu logradouro é ${rua}<br>`;
+        exibir.innerHTML += `O número do seu logradouro é ${Numero}`;
+    }
+</script>

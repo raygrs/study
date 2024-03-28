@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    frente do retangulo: <input id="retangulo_frente"><br>
+    lateral do retangulo: <input id="retangulo_lateral"><br>
+    <button onclick="calcular()">Area do terreno</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function calcular(){
+        let frente = Number (retangulo_frente);
+        let lateral = Number (retangulo_lateral);
+        let area = frente / (lateral * lateral);
+
+        if(area < 100){
+            exibir.innerHTML = `#terrenopequeno`
+        }else if(area >= 100 ){
+            if(area <= 250){
+                exibir.innerHTML = `terrenomedio`
+            }
+        }else{
+            exibir.innerHTML = `#terrenogrande`
+        }
+    }
+</script>

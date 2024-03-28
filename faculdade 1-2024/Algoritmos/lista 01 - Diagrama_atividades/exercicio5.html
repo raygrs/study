@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Horas dormidas: <input id="hrs"><br>
+    <button onclick="analisar()">ver</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function analisar(){
+        var hora = Number (hrs.value);
+
+        if(hora <= 4){
+            exibir.innerHTML = `#zumbi`;
+        }else if(hora < 7){
+            exibir.innerHTML = `Pouca concentração`;
+        }else if(hora <= 9){
+            exibir.innerHTML = `Boa concentração`;
+        }else{
+            exibir.innerHTML = `Olha a preguiça`;
+        }
+    }
+</script>
