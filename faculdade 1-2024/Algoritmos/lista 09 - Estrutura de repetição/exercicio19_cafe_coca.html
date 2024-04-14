@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+
+<body>
+  <span>Quantas xícares de café com leite você já tomou na vida?</span>
+  <input type="number" id="input_qtd_xicara"><br>
+  <button onclick="analisar()">Ver quantidade</button>
+  <div id="exibir"></div>
+
+</body>
+
+</html>
+<script>
+  function analisar() {
+    const qtd_xicara = Number(input_qtd_xicara.value);
+
+    for (let i = 1; i <= qtd_xicara; i++) {
+      exibir.innerHTML += `
+      <img src="https://minhasaude.proteste.org.br/wp-content/uploads/2023/06/colher-carregando-punhado-de-leite-em-po-sobre-fundo-branco.jpg" alt="imagem do leite em pó" width="300px" height="200px">
+
+      <img src="https://uaiagro.com.br/wp-content/uploads/2023/01/af0a7040-ee1f-41c9-b365-81095dacc2f2.jpg" alt="imagem do café" width="300px" height="200px">
+
+      <img src="https://uaiagro.com.br/wp-content/uploads/2023/01/af0a7040-ee1f-41c9-b365-81095dacc2f2.jpg" alt="imagem do café" width="300px" height="200px"> <br>
+      
+      `
+    }
+  }
+</script>

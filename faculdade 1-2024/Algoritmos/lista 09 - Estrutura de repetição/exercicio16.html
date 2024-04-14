@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+
+<body>
+  <span>Quantas pessoas vão entrar no carro?</span>
+  <input type="number" id="input_qtd_pessoas"><br>
+  <button onclick="analisar()">#Partiu Carona</button>
+  <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+  function analisar() {
+    const qtd_pessoas = Number(input_qtd_pessoas.value);
+
+    for (let i = 1; i <= qtd_pessoas; i++) {
+      if (i == 1) {
+        exibir.innerHTML += `Entrou o ${i}º passageiro (que é o(a) motorista)<br>`
+      }
+
+      if (i > 5) {
+        exibir.innerHTML += `O ${i}° passageiro terá que esperar! <br>`
+      } else {
+        exibir.innerHTML += `Entrou o ${i}° passageiro<br>`
+      }
+    }
+  }
+</script>

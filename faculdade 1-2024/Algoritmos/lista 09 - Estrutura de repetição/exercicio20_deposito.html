@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+<body>
+  <span>Quantos depósitos você fez no banco?</span>
+  <input type="number" id="input_deposito"><br>
+  <span>Valor do depósito</span>
+  <input type="number" id="input_deposito_valor"><br>
+  <button onclick="acompanhar()">Acompanhar grana</button>
+  <div id="exibir"></div>
+</body>
+</html>
+<script>
+  function acompanhar(){
+    const qtd_deposito = Number (input_deposito.value);
+    const valor_deposito = Number (input_deposito_valor.value);
+
+    exibir.innerHTML = '';
+
+    for (let i = 1; i <= qtd_deposito; i++){
+      exibir.innerHTML += `${i}°Mês: R$ ${valor_deposito * i}.00 <br>`
+
+      if(i == qtd_deposito){
+        exibir.innerHTML += `Total guardado: R$${valor_deposito * qtd_deposito}.00<br>`
+      }
+    }
+  }
+</script>

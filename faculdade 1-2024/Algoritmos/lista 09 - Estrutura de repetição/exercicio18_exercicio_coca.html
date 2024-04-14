@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+<body>
+  <span>Quantas "Coca-Cola" você acha que já bebeu na vida </span>
+  <input type="number" id="input_qtd_coca"><br>
+  <button onclick="analisar()">Ver a quantidade</button>
+  <div id="exibir"></div>
+</body>
+</html>
+<script>
+  function analisar(){
+    const qtd_coca = Number (input_qtd_coca.value);
+
+    exibir.innerHTML = ``;
+    
+    for (let i = 1; i <= qtd_coca; i++){
+      exibir.innerHTML += `<img src="https://www.imigrantesbebidas.com.br/img/bebida/images/products/full/1984-refrigerante-coca-cola-lata-350ml.jpg?s=ef1f9ccf20330fe8f998c65372625c77" alt="imagem de uma latinha de coca cola" width="300px" height="400px">`
+    }
+  }
+</script>
