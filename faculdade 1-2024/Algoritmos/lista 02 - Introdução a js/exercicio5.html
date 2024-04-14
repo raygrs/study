@@ -8,14 +8,14 @@
 <body>
     <h2>PET</h2>
     Digite o nome dos Pets que já teve (um por vez) <input id="pet">
-    <button id="contador" value="" onclick="verpet()">Ver informações do Pet</button>
+    <button id="contador" value="1" onclick="verpet()">Ver informações do Pet</button>
     <div id="exibir"></div>
 </body>
 </html>
 <script>
     function verpet(){
         let Pet = pet.value;
-        let Contador = (contador.value += 'I') ;
+        let Contador = Number (contador.value ++) ;
         
 
         exibir.innerHTML += `Este é o pet ${Contador}, seu nome é ${Pet}<br>`

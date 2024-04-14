@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC1</title>
+</head>
+
+<body>
+  <H2>AC1</H2>
+
+  <span>Energia consumida em kWh </span>
+  <input type="number" id="input_energia_consumida"><br>
+  <span>Bandeira </span>
+  <input type="text" id="input_bandeira"><br>
+  <span>Água consumida</span>
+  <input type="number" id="input_agua_consumido"><br>
+  <span>Vazamento</span>
+  <input type="number" id="input_vazamentos"><br>
+  <span>Gás consumido</span>
+  <input type="number" id="input_gas_consumido"><br>
+  <span>Quantidade MB do plano de internet</span>
+  <input type="number" id="input_mb"><br>
+  <span>Possui linha telefônica?</span>
+  <input type="text" id="input_linha_telefonica"><BR>
+
+  <button onclick="calcular()">Calcular Despesas Fixas</button>
+  <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+  function calcular() {
+    const ENERGIA_CONSUMIDA = Number(input_energia_consumida.value);
+    const BANDEIRA = input_bandeira.value;
+    const AGUA_CONSUMIDO = Number(input_agua_consumido.value);
+    const VAZAMENTO = Number(input_vazamentos.value);
+    const GAS_CONSUMIDO = Number(input_gas_consumido.value);
+    const INTERNET = Number(input_mb.value);
+    const TELEFONE = input_linha_telefonica.value;
+    let valor_base = 0;
+    let desconto = 0;
+
+    // sobre a energia elétrica
+    if (BANDEIRA.toUpperCase() == 'VERDE') {
+      valor_base = 0.75 * ENERGIA_CONSUMIDA;
+    } else if (BANDEIRA.toUpperCase() == 'AMARELA') {
+      valor_base = 0.9 * ENERGIA_CONSUMIDA;
+    } else if (BANDEIRA.toUpperCase() == 'VERMELHA') {
+      valor_base = 1 * ENERGIA_CONSUMIDA;
+    }
+
+    if (ENERGIA_CONSUMIDA <= 50) {
+      desconto = valor_base * 0.10;
+    }
+
+    const total_Energia = valor_base - desconto;
+
+    // sobre a água
+    const valor_base_agua = 3.5 * AGUA_CONSUMIDO;
+    let acrescimo_agua = 0;
+
+    if (VAZAMENTO >= 1) {
+      acrescimo_agua = 10 * valor_base_agua;
+    }
+
+    const total_agua = valor_base_agua + acrescimo_agua;
+
+    // sobre o gás
+    const valor_base_gas = 2.5 * GAS_CONSUMIDO;
+
+    // sobre o telefone
+    const valor_base_plano = 0.80 * INTERNET;
+
+    let total_internet = 0;
+    if (TELEFONE.toUpperCase() == 'SIM') {
+      total_internet = valor_base_plano + (valor_base_plano * 0.25);
+    } else {
+      total_internet = valor_base_plano - (valor_base_plano * 0.075);
+    }
+
+    const TOTAL = total_Energia + total_agua + valor_base_gas + total_internet;
+
+    exibir.innerHTML = `
+        Com o consumo de ${ENERGIA_CONSUMIDA} kWh na bandeira ${BANDEIRA}, a conta de energia totaliza R$ ${total_Energia}. <br>
+        Com o consumo de ${AGUA_CONSUMIDO} litros de água contendo ${VAZAMENTO} vazamentos, a conta de água totaliza R$ ${total_agua}. <br>
+        Com o consumo de ${GAS_CONSUMIDO}litros de gás, a conta de gás totaliza R$ ${valor_base_gas}. <br>
+        Com o consumo de ${INTERNET} MB de internet, o valor do plano de internet/telefone totaliza R$ ${total_internet}. <br>
+        Gasto total de despesas mensal: R$ ${TOTAL}.`
+
+
+
+  }
+</script>

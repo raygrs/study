@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+
+<body>
+  <h2>Tabuada</h2>
+  <span>Insira o valor base da tabuada:</span>
+  <select id="select_valor_base">
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+  </select><br>
+
+  <span>Até que número ela deverá ser construida?</span>
+  <input type="number" id="input_numero"><br>
+
+  <button onclick="calcular()">Ver tabuada</button>
+  <div id="exibir"></div>
+
+</body>
+
+</html>
+<script>
+  function calcular() {
+    const valor_base = select_valor_base.value;
+    const numero = input_numero.value;
+
+    for (let i = 1; i <= numero; i++) {
+
+      if (i % 2 == 0) {
+        exibir.innerHTML += ` <span style="color: blue;">${valor_base} X ${i} = ${valor_base * i}<br></span>`
+      } else {
+        exibir.innerHTML += ` <span style="color: red;">${valor_base} X ${i} = ${valor_base * i}<br></span>`
+      }
+
+
+
+    }
+  }
+</script>

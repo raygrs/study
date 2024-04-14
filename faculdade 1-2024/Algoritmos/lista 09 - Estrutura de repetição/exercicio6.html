@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+<body>
+  <span>Digite o nome de quem você mais ama na vida:</span>
+  <input type="text" id="Nome"><br>
+  <span>O quanto você ama</span>
+  <input type="number" id="Qtd"><br>
+  <button onclick="looping()">Expressar amor</button>
+  <div id="exibir"></div>
+
+</body>
+</html>
+<script>
+  function looping(){
+    const nome = Nome.value;
+    const qtd = Number (Qtd.value);
+
+    for (let i = 1; i <= qtd; i++){
+      exibir.innerHTML += `
+      ${i} - ${nome}, eu te amo! Sempre lembre disso <br>
+      `
+    }
+  }
+</script>

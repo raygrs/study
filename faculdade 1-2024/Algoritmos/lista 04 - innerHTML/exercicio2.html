@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmos</title>
+</head>
+<body>
+    <span>Votos do Candidato A:</span>
+    <input id="candidatoA"><br>
+
+    <span>Votos do Candidato B:</span>
+    <input id="candidatoB"><br>
+
+    <span>Votos brancos:</span>
+    <input id="Branco"><br>
+
+    <span>Votos nulos:</span>
+    <input id="Nulos"><br>
+
+    <button onclick="resultado()">Resultado da eleição</button>
+
+</body>
+</html>
+<script>
+    function resultado(){
+
+        const candA = Number (candidatoA.value);
+        const candB = Number (candidatoB.value);
+        const nulo = Number(Nulos.value);
+        const branco = Number(Branco.value);
+        const total = candA + candB + nulo + branco;
+
+
+        exibir.innerHTML = `
+        Total de votos: ${total}<br>
+        Candidato A:  <br>
+        Candidato B: <br>
+        Inválidos: <br>
+        
+        `
+
+        
+
+    }
+</script>

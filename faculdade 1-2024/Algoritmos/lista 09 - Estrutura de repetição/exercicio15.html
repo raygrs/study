@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+<body>
+  <span>Quantidade de elefante:</span>
+  <input type="number" id="input_qtd"><br>
+  <button onclick="incrementar()">Atazanar a médium</button><br>
+  <div id="exibir"></div>
+
+</body>
+</html>
+<script>
+  function incrementar(){
+    const qtd = Number (input_qtd.value);
+   
+    let txt = 'incomodam, ';
+
+    for ( let i = 1; i < qtd; i+= 1){
+        txt += ' incomodam, '
+        exibir.innerHTML += `1 elefante incomoda muita gente <br>`
+        exibir.innerHTML += `${i + 1} elefante ${txt} muito mais <br> `
+    }
+  }
+</script>

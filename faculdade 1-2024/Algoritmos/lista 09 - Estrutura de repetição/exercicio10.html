@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+<body>
+  <span>Insira o valor mínimo:</span>
+  <input type="number" id="input_minimo"><br>
+
+  <span>Insira o valor máximo:</span>
+  <input type="number" id="input_maximo"><br>
+
+  <button onclick="looping()">S2 Pares</button>
+  <div id="exibir"></div>
+</body>
+</html>
+<script>
+  function looping(){
+    const min = Number (input_minimo.value);
+    const max = Number (input_maximo.value);
+
+      for (let i = min; i < max; i++){
+        if(i % 2 == 0){
+          exibir.innerHTML += `${i}<br>`;
+        }
+      }
+  }
+</script>

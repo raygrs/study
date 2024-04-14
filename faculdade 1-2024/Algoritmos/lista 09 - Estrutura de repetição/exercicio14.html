@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+<body>
+  <span>Insira sua idade:</span>
+ <input type="number" id="input_idade" onkeyup="calcular()">
+ <div id="exibir"></div>
+</body>
+</html>
+<script>
+  function calcular(){
+    const idade = Number(input_idade.value);
+    let i = 0;
+    
+    for (; i <= idade; i++){
+      if(i <= 4){
+        exibir.innerHTML += ` ${i} anos (Primeira infância)<br>`
+      }else if(i > 4 && i <= 6){
+        exibir.innerHTML += ` ${i} anos (Pré-escolar)<br>`
+      }else if(i > 6 && i <= 10){
+        exibir.innerHTML += ` ${i} anos (Segunda infância)<br>`
+      }else if(i > 10 && i <= 18){
+        exibir.innerHTML += ` ${i} anos (Adolescência )<br>`
+      }else if(i > 18 && i <= 50){
+        exibir.innerHTML += ` ${i} anos (Adulto)<br>`
+      }else if(i > 50 && i <= 100){
+        exibir.innerHTML += ` ${i} anos (Melhor i)<br>`
+      }else if(i > 100) {
+        exibir.innerHTML += ` ${i} anos (Matusalém)<br>`
+      }
+    }
+  }
+</script>

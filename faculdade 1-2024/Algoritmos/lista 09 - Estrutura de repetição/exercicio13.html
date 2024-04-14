@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+<body>
+  <span>Intervalo da musculação:</span>
+  <input type="number" id="input_intervalo"><br>
+  <button onclick="calcular()">Exibir rotina mensal</button>
+  <div id="exibir"></div>
+</body>
+</html>
+<script>
+  function calcular(){
+    const intervalo = Number(input_intervalo.value);
+
+    for(let i = 1; i <= 30; i++){
+      if(i % intervalo == 1){
+        exibir.innerHTML += `Dia ${i} - Musculação <br>`
+      }else {exibir.innerHTML += `Dia${i} Comer, dormir etc <br>`}
+    }
+  }
+</script>

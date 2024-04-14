@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+
+<body>
+  <span>Digite um número:</span>
+  <input type="number" id="input_numero"><br>
+  <button onclick="multiplos_de_cinco()">Adoro múltiplos de 5</button>
+  <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+  function multiplos_de_cinco() {
+    const numero = Number(input_numero.value);
+    let i = 1
+
+    if (numero >= 20 && numero <= 100) {
+      for (; i <= numero; i++) {
+        if(i % 5 == 0){
+          exibir.innerHTML += `${i}<br>`
+        }
+      }
+    }else{
+    alert(`o número deve ser multíplos de 5`);
+  }
+
+  }
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+<body>
+  <span>Insira um número:</span>
+  <input type="number" id="input_numero"><br>
+  <span>Insira uma frase</span>
+  <input type="text" id="input_frase"><br>
+  <button onclick="looping()">Papagaio</button>
+  <div id="exibir"></div>
+  
+</body>
+</html>
+<script>
+  function looping(){
+    const numero = Number(input_numero.value);
+    const frase = input_frase.value;
+
+    for (let i = 0; i < numero; i++){
+      alert( `${frase}`);
+    }
+
+  }
+</script>
