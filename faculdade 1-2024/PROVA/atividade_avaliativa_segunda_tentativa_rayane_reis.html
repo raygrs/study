@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade Avaliativa 2 - Sprint 2</title>
+</head>
+
+<body>
+  <span>Episódio que deseja começar assistindo:</span>
+  <input type="number" id="input_epsodio_inicial"><br>
+  <span>Quantidade de tempo disponível</span>
+  <input type="number" id="input_qtd_tempo_disponivel"><br>
+  <span>Unidade de tempo em:</span>
+  <select id="select_tempo">
+    <option value="vazio">Selecione uma opção</option>
+    <option value="horas">Horas</option>
+    <option value="minutos">Minutos</option>
+  </select><br>
+  <span>Pular abertura?</span>
+  <select id="select_pular_abertura">
+    <option value="vazio">Selecione uma opção</option>
+    <option value="sim">Sim</option>
+    <option value="nao">Não</option>
+  </select><br>
+  <span>Pular encerramento?</span>
+  <select id="select_pular_encerramento">
+    <option value="vazio">Selecione uma opção</option>
+    <option value="sim">Sim</option>
+    <option value="nao">Não</option>
+  </select><br>
+  <button onclick="assistir()">Assistir Episódios</button>
+  <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+  function assistir() {
+
+    
+    const episodio_inicial = Number(input_epsodio_inicial.value);
+    const tempo_disponivel = Number(input_qtd_tempo_disponivel.value);
+    const unidade_tempo = (select_tempo.value);
+    const pular_abertura = select_pular_abertura.value;
+    const pular_encerramento = select_pular_encerramento.value;
+    // let tempo_episodio_completo = 24;
+    let episodio_por_minuto = 24;
+
+    if(pular_abertura == 'sim'){
+      episodio_por_minuto = episodio_por_minuto - 2;
+    }else if(pular_encerramento == 'sim'){
+      episodio_por_minuto = episodio_por_minuto -2;
+    }
+
+    if(unidade_tempo == 'horas'){
+      tempo_disponivel * 60;
+    }
+
+    let episodio_assistidos = tempo_disponivel / episodio_por_minuto 
+
+    if(episodio_inicial >= 1 && episodio_inicial <=1100){
+
+      console.log(`tá na função`);
+      // for (episodio_atual = episodio_inicial; episodio_atual <= episodio_assistidos; episodio_atual ++ ){
+      //   // for para saber quantos episódio o usuario consegue assistir 
+
+      //   exibir.innerHTML += `Foram assistidos: ${episodio_atual}`
+      // }
+
+
+
+
+
+
+
+    }else{
+      alert(`O número do episódio é inválido`)
+    }
+
+  }
+</script>
