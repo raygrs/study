@@ -1,0 +1,59 @@
+
+body{
+    font-family: 'Poppins', sans-serif;   
+    background-image: url(https://img.freepik.com/free-vector/stream-binary-code-design-vector_53876-161363.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1705190400&semt=sph); 
+    background-position: 50%;
+    background-image: cover;
+    cursor: pointer;
+    overflow-y: hidden;
+    height: 80vh;
+
+}
+
+.container{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 90px rgba(26, 191, 26, 0.862);
+    border-radius: 40px;
+    width: 800px;
+    margin-top: 12rem;
+    padding: 20px;
+
+}
+.girls{
+    color: rgba(21, 138, 17, 0.822);
+    font-style: italic;
+}
+button{
+    margin: 15px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 16px;
+    border: 0;
+    border-radius: 6px;
+    height: 40px;
+    padding: 0 32px;
+    transition: .5s;
+    border-radius: 6px;
+    background-color: rgb(107, 175, 93);
+    
+}
+button:hover{
+    background-color: rgb(179, 201, 194);
+    cursor: pointer;
+}
+.conteudo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.input{
+    height: 20px;
+    border-radius: 3px;
+    margin-top: 5px;
+    cursor: pointer;
+    /* background-color: aquamarine; */
+}
+.input:focus{
+    background-color: aliceblue;
+}

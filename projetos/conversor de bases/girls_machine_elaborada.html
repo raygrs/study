@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olá programador(a)</title>
+    <style>
+        
+body{
+    font-family: 'Poppins', sans-serif;   
+    background-image: url(https://img.freepik.com/free-vector/stream-binary-code-design-vector_53876-161363.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1705190400&semt=sph); 
+    background-position: 50%;
+    background-image: cover;
+    cursor: pointer;
+    overflow-y: hidden;
+    height: 80vh;
+
+}
+
+.container{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 90px rgba(26, 191, 26, 0.862);
+    border-radius: 40px;
+    width: 800px;
+    margin-top: 12rem;
+    padding: 20px;
+
+}
+.girls{
+    color: rgba(20, 96, 17, 0.822);
+    font-style: italic;
+}
+button{
+    margin: 15px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 16px;
+    border: 0;
+    border-radius: 6px;
+    height: 40px;
+    padding: 0 32px;
+    transition: .5s;
+    border-radius: 6px;
+    background-color: rgb(107, 175, 93);
+    
+}
+button:hover{
+    background-color: rgb(179, 201, 194);
+    cursor: pointer;
+}
+.conteudo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.input{
+    height: 20px;
+    border-radius: 3px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.input:focus{
+    background-color: aliceblue;
+}
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <div class="container">
+            <h1 class="girls">Calculadora do(a) programador(a)</h1>
+            <span class="numero_input">Digite um número: </span><input id="receber_numero" class="input" type="text"
+                placeholder="Digite aqui"><br>
+
+            <span>Selecione a base do número acima: </span>
+            <select id="base" class="input">
+                <option value="vazio"></option>
+                <option value="decimal">Decimal</option>
+                <option value="binario">Binário</option>
+                <option value="hexadecimal">Hexadecimal</option>
+                <option value="octal">Octal</option>
+            </select><br><br>
+
+            <!-- <span>Converter para todas as bases </span> -->
+            <button onclick="converter()">Converter bases</button>
+
+            <div id="exibir"></div>
+
+        </div>
+
+    </center>
+
+    </div>
+
+    <script>
+
+        function converter() {
+            let numero_recebido = (receber_numero.value);
+            const Base = base.value;
+
+            if (Base == 'decimal') {
+                
+                let numero_recebido_binario = parseInt(numero_recebido, 10).toString(2);
+                exibir.innerHTML = `O número na base 2 é: <b>${numero_recebido_binario}</b> <br>`;
+
+                let numero_recebido_octal = parseInt(numero_recebido, 10).toString(8);
+                exibir.innerHTML += `O número na base 8 é: <b>${numero_recebido_octal}</b> <br>`;
+
+                let numero_recebido_hexa = parseInt(numero_recebido, 10).toString(16).toUpperCase();
+                exibir.innerHTML += `O número na base 16 é: <b>${numero_recebido_hexa}</b> <br>`;
+
+            } else if (Base == 'binario') {
+
+                let numero_recebido_decimal = parseInt(numero_recebido, 2);
+                exibir.innerHTML = `O número na base 10 é: <b>${numero_recebido_decimal}</b> <br>`;
+
+                let numero_recebido_octal = parseInt(numero_recebido, 2).toString(8);
+                exibir.innerHTML += `O número na base 8 é: <b>${numero_recebido_octal}</b> <br>`;
+
+                let numero_recebido_hexa = parseInt(numero_recebido, 2).toString(16).toUpperCase();
+                exibir.innerHTML += `O número na base 16 é: <b>${numero_recebido_hexa}</b> <br>`;
+
+            } else if (Base == 'octal') {
+
+                let numero_recebido_binario = parseInt(numero_recebido, 8).toString(2);
+                exibir.innerHTML = `O número na base 2 é: <b>${numero_recebido_binario}</b> <br>`;
+
+                let numero_recebido_decimal = parseInt(numero_recebido, 8);
+                exibir.innerHTML += `O número na base 10 é: <b>${numero_recebido_decimal}</b> <br>`;
+
+                let numero_recebido_hexa = parseInt(numero_recebido, 8).toString(16).toUpperCase();
+                exibir.innerHTML += `O número na base 16 é: <b>${numero_recebido_hexa}</b> <br>`;
+
+            } else if (Base == 'hexadecimal') {
+
+                let numero_recebido_binario = parseInt(numero_recebido, 16).toString(2);
+                exibir.innerHTML = `O número na base 2 é: <b>${numero_recebido_binario}</b> <br>`;
+
+                let numero_recebido_octal = parseInt(numero_recebido, 16).toString(8);
+                exibir.innerHTML += `O número na base 8 é: <b>${numero_recebido_octal}</b> <br>`;
+
+                let numero_recebido_decimal = parseInt(numero_recebido, 16);
+                exibir.innerHTML += `O número na base 10 é: <b>${numero_recebido_decimal}</b> <br>`;
+
+            } else {
+                alert(`Selecione uma base válida`)
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
