@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+
+<body>
+  <span>Insira o nome de uma fruta</span>
+  <input type="text" id="input_pesquisa"><br>
+  <button onclick="pesquisarFrutas()">Pesquisar</button>
+  <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+  function pesquisarFrutas() {
+    const frutaPesquisada = input_pesquisa.value.toLowerCase()
+    const listaFrutas = ['uva', 'manga', 'pera', 'abacaxi'];
+
+    exibir.innerHTML = '';
+    // let frutaEstaNaLista = false;
+    // for (let posicao = 0; posicao < listaFrutas.length; posicao++) {
+    //   const fruta = listaFrutas[posicao];
+    //   if(frutaPesquisada == fruta){
+    //     frutaEstaNaLista = true;
+    //   }
+    // }
+
+    // if(frutaEstaNaLista){
+    //   exibir.innerHTML = `A fruta está na lista`
+    // }else{
+    //   exibir.innerHTML = `A fruta não está na lista`
+    // }
+
+    // EXPLICAÇÃO DO CÓDIGO ACIMA PRIMEIRO CRIEI UMA LISTA UTILIZANDO UM VETOR LOGO APOS LIMPEI A DIV PARA TER UMA MELHOR VSUALIZAÇÃO DOS RESULTADOS, INICIEI UMA VARIAVEL PARA VERIFICAR SE A FRUTA ESTÁ NA LISTA COMECEI SEU RESULTADO COMO FALSO, PRECISARIA PERCORRER ENTRE A LISTA PARA CHECAR COMO SERIA O RESULTADO ENTÃO UTILIZEI UMA ESTRUTURA DE REPETIÇÃO FOR, E ESTOU FALANDO QUE ENQUANTO A POSIÇÃO DELE FOR MENOR QUE O TAMANHO DA LISTA QUE ELE PODE CONTINUAR RODANDO, LOGO APÓS CRIEI UMA CONSTANTE PARA SABER QUAL FRUTA ESTÁ EM DETERMINADA POSIÇÃO, E CRIEI UMA ESTRUTURA DE DECISÃO PARA VERIFICAR SE A FRUTA QUE O USUARIO DIGITOU É IGUAL A ALGUMA POSIÇÃO DA LISTA, APÓS SAIR DO FOR EU VERIFICO SE A FRUTA ESTÁ NA LISTA E EXIBO AS MENSAGENS 
+
+
+    // DÚVIDAS
+    // POR QUÊ QUANDO EU FAÇO O IF DIRETO DENTRO DO FOR DA ERRADO?
+    for (let posicao = 0; posicao < listaFrutas.length; posicao++) {
+      const fruta = listaFrutas[posicao];
+      if(frutaPesquisada == fruta){
+        exibir.innerHTML = `A fruta está na lista`
+      }
+      // NESSE EXEMPLO DEU ERRADO POR QUE EU COLOQUEI O ELSE DENTRO DO FOR ENTÃO ELE SEMPRE VAI CAIR NO ELSE, MAS SE TIVESSE COLOCADO SOMENTE O IF ELE ENTRARIA
+    }
+
+    
+
+    
+  }
+
+</script>

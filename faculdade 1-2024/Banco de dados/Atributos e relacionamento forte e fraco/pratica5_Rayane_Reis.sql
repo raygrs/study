@@ -311,6 +311,7 @@ fkOrientador INT,
 CONSTRAINT TreinadorNovato FOREIGN KEY (fkOrientador) REFERENCES Treinador (idTreinador)
 );
 
+
 INSERT INTO Treinador VALUES 
 (1, 'Rayane', '11 96525-1111', 'raygrs@gmail.com', null), -- ORIENTADOR
 (2, 'Julia', '11 96525-1112', 'Julia@gmail.com', null ), -- ORIENTADOR
@@ -332,6 +333,7 @@ CONSTRAINT treinador_nadador FOREIGN KEY (fkTreinador) REFERENCES Nadador (idNad
 CONSTRAINT pkCommposta_nadador PRIMARY KEY (idNadador, fkTreinador)
 );
 
+-- QUANDO A CHAVE PRIMARIA É COMPOSTA A FK NUNCA PODERÁ SER NULA 
 INSERT INTO NADADOR VALUES 
 (1, 'Bianca', 'Bahia', '2000-09-08', 1),
 (2, 'Vitória', 'Rio grande do sul', '2000-09-07', 1),
@@ -347,12 +349,17 @@ INSERT INTO NADADOR VALUES
 SELECT * FROM Nadador;
 SELECT * FROM Treinador;
 
+-- QUANDO FOR DAR O UPDATE OU DELETE SE UTILIZA O AND 
+UPDATE Treinador SET nome = 'Rayane' WHERE idNadador =  1 AND idTreinador = 2;
+
 SELECT * FROM Treinador JOIN Nadador 
 	ON treinador.idtreinador = Nadador.fkTreinador;
     
 SELECT * FROM Treinador JOIN Nadador 
 	ON treinador.idtreinador = Nadador.fkTreinador 
 		WHERE treinador.nome = 'Rayane';
+        
+       -- ifnull(nome do campo, 'o que você quer que apareça') -> se esse campo for nulo aparece XPTO
 
 SELECT 
 orientador.nome AS Orientador,
@@ -408,6 +415,7 @@ JOIN Nadador ON orientador.idTreinador = nadador.fkTreinador
 JOIN Treinador as orientado on orientado.fkOrientador = orientador.idTreinador 
     WHERE orientado.nome = 'Mellanie';
     
+    -- where fkTreinador is null;
     
 
 -- ME DESAFIANDO /////////////////////////////////////////////////////

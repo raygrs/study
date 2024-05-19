@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+
+<body>
+  <span>Limite inferior da amostragem:</span>
+  <input type="number" id="input_amostragem_minima"><br>
+
+  <span>Limite superior da amostragem</span>
+  <input type="number" id="input_amostragem_maxima"><br>
+
+  <span>Número divisivel</span>
+  <input type="number" id="input_numero_divisivel"><br>
+
+  <button onclick="testar_visibilidade()">Contar</button>
+  <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+  function testar_visibilidade() {
+    const amostragem_minima = Number(input_amostragem_minima.value);
+    const amostragem_maxima = Number(input_amostragem_maxima.value);
+    const divisivel = Number(input_numero_divisivel.value);
+    let soma = 0;
+    let contador_tamanho = 0;
+
+    exibir.innerHTML = '';
+
+    if (amostragem_minima < 1) {
+      alert(`O número deve ser maior que 1`)
+    }
+    if (amostragem_maxima < 100 && amostragem_maxima < amostragem_minima) {
+      alert(`O número deve ser menor que 100 e maior que o limite do item inferior`)
+    }
+    if (divisivel < 3 || divisivel > 10) {
+      alert(`O número deve estar entre 3 e 10`);
+    }
+    for (let i = amostragem_minima; i <= amostragem_maxima; i++) {
+      if (i % divisivel == 0) {
+        contador_tamanho = i.toString();
+        exibir.innerHTML += `${contador_tamanho}, `
+
+        let numeros_separados = Number (contador_tamanho.split(' '));
+
+        soma = 0;
+
+        for(let indicador = 0; indicador < contador_tamanho.length; indicador++){
+          let valorNumerico = parseFloat(numeros_separados[indicador]);
+
+          soma += valorNumerico
+        }
+
+      }
+
+      // let contador = Number (i);
+      // numeros_separados = contador.split(',');
+    }
+
+    // console.log(contador, numeros_separados)
+
+    exibir.innerHTML += `Quantidade total de números exibidos: ${contador_tamanho.length + 1} <br>
+          Somatório dos números exibidos: ${soma} <br>
+          Média dos números exibidos: X <br>
+          Maior Número exibido: X <br> 
+          Menor Número exibido: X <BR>`
+
+
+
+  }
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite o nome de uma fruta:
+    <input id="input_fruta"><br>
+    <button onclick="pesquisarFruta()">
+        Pesquisar
+    </button>
+    <div id="div_resultado">
+    </div>
+</body>
+</html>
+
+<script>
+    function pesquisarFruta() {
+        const listaFrutas = [
+            "abacaxi", 
+            "uva", 
+            "pera", 
+            "uva", 
+            "morango", 
+            "uva"];
+        const frutaPesquisada = input_fruta.value.toLowerCase();
+        
+        // const frutaEstaNaLista = listaFrutas.indexOf(frutaPesquisada) > -1;
+        // if (frutaEstaNaLista) {
+        //     div_resultado.innerHTML = `A fruta ${frutaPesquisada} existe na lista`;
+        // } else {
+        //     div_resultado.innerHTML = `A fruta ${frutaPesquisada} não existe na lista`;
+        // }
+
+        // let quantidadeFrutaNaLista = 0;
+        // for (let posicao = 0;
+        //     posicao < listaFrutas.length;
+        //     posicao += 1) {
+        //         const fruta = listaFrutas[posicao];
+        //         if (fruta == frutaPesquisada) {
+        //             quantidadeFrutaNaLista += 1;
+        //         }
+        // }
+
+        let frutaEstaNaLista = false;
+        for (let posicao = 0;
+            posicao < listaFrutas.length;
+            posicao += 1) {
+                const fruta = listaFrutas[posicao];
+                if (fruta == frutaPesquisada) {
+                    frutaEstaNaLista = true;
+                }
+        }
+
+        if (frutaEstaNaLista) {
+            div_resultado.innerHTML = `A fruta está na lista`
+        } else {
+            div_resultado.innerHTML = `A fruta não está na lista`;
+        }
+
+        // if (quantidadeFrutaNaLista > 0) {
+        //     div_resultado.innerHTML = `A fruta aparece ${quantidadeFrutaNaLista} vezes na lista`
+        // } else {
+        //     div_resultado.innerHTML = `A fruta não está na lista`;
+        // }
+
+    }
+</script>

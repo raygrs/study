@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+
+<body>
+  <span>Nome da fruta:</span>
+  <input type="text" id="inputFrutaPesquisada"><br>
+  <button onclick="pesquisarfrutas()">Pesquisar</button>
+  <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+  function pesquisarfrutas() {
+    const frutaPesquisada = inputFrutaPesquisada.value.toLowerCase();
+    const listadeFrutas = ['uva', 'morango', 'pera', 'caju'];
+    let frutaEstaNaLista = false;
+
+    console.log(listadeFrutas)
+
+    // preciso de um for para percorrer o array
+    for (let posicaoFruta = 0; posicaoFruta <= listadeFrutas.length; posicaoFruta++) {
+      if (frutaPesquisada == listadeFrutas[posicaoFruta]) {
+        frutaEstaNaLista = true;
+      }
+    }
+
+    if (!frutaEstaNaLista) {
+      div_resultado.innerHTML = `Não existe a fruta ${frutaPesquisada} na lista`;
+    } else {
+      div_resultado.innerHTML = `A fruta ${frutaPesquisada} está na lista`;
+    }
+
+  }
+</script>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa</title>
+</head>
+
+<body>
+
+    <div id="validacao_inicial" style="display: block;">
+        <h1>Simulação de Emprestimos e Investimentos</h1>
+        <h3>Entre com dados da sua conta:</h3>
+
+        <input type="text" id="Conta" placeholder="Conta">
+        <input id="Digito" placeholder="Digito">
+        <input type="password" id="input_senha" placeholder="Senha"><br>
+        <button id="contador" value="0" onclick="simular()">Simular</button>
+    </div>
+
+    <div id="div_pos_validacao" style="display: none;">
+        <h1>O banco KNAB é a sua melhor opção</h1>
+        <h3>Entre com os dados da sua conta</h3>
+
+        <span>Valor da Operação:</span>
+        <input id="valor_operacao" placeholder="valor"><br>
+
+        <select id="Operacoes">
+            <option value="vazio">Selecione a operação</option>
+            <option value="emprestimo">Empréstimo</option>
+            <option value="investimentos">Investimento</option>
+        </select>
+
+        <select id="Prazo">
+            <option value="vazio">Selecione o prazo</option>
+            <option value="curto">Curto</option>
+            <option value="medio">Médio</option>
+            <option value="longo">Longo</option>
+        </select>
+
+        <button onclick="resultado()">Mostrar Resultado</button>
+
+    </div>
+
+    <div id="exibir"></div>
+    <div style="display: none;" id="volte"><button onclick="voltar()">Voltar</button></div>
+</body>
+
+</html>
+<script>
+    function simular() {
+        const conta = Conta.value;
+        const digito = Digito.value;
+        let Senha = input_senha.value;
+        let resto = conta % 10;
+
+        if (conta > 0 && digito == resto && Senha.length >= 9 && Senha.indexOf("#") >= 0 || Senha.indexOf("@") >= 0) {
+
+            if (Senha.indexOf("0") >= 0 ||
+                Senha.indexOf("1") >= 0 ||
+                Senha.indexOf("2") >= 0 ||
+                Senha.indexOf("3") >= 0 ||
+                Senha.indexOf("4") >= 0 ||
+                Senha.indexOf("5") >= 0 ||
+                Senha.indexOf("6") >= 0 ||
+                Senha.indexOf("7") >= 0 ||
+                Senha.indexOf("8") >= 0 ||
+                Senha.indexOf("9") >= 0) {
+
+                if (Senha.toUpperCase().indexOf('MANAUS') >= 0 && digito >= 0 && digito <= 3 ||
+                    Senha.toUpperCase().indexOf('RECIFE') >= 0 && digito >= 4 && digito <= 7 ||
+                    Senha.toUpperCase().indexOf('FORTALEZA') >= 0 && digito >= 8) {
+
+                    validacao_inicial.style.display = 'none';
+                    div_pos_validacao.style.display = 'block';
+                    resultado();
+
+                } else {
+                    alert(`Digito e senha não correspondente`);
+                }
+
+            } else {
+                alert(`A senha deverá conter números`)
+            }
+
+        } else {
+            if (conta <= 0) {
+                alert(`A conta deverá ser maior que zero`)
+            } else if (Senha.length < 10 || Senha == '') {
+                alert(`Insira uma senha válida`);
+            } else {
+                alert("Insira o caracter especial @ ou #");
+            }
+        }
+    }
+
+    function resultado() {
+        const valor = Number(valor_operacao.value);
+        const prazo = Prazo.value;
+        const operacao = Operacoes.value;
+        let taxa_emprestimo = 0;
+        let Contador = Number(contador.value++);
+
+
+        // ESTUDAR A PARTE DE PORCENTAGEM
+        if (prazo == 'curto' || prazo == 'medio') {
+            alert(`Esta operação está condicionada ao seu perfil`);
+        }
+        if (operacao == 'emprestimo') {
+            if (prazo == 'curto') {
+                taxa_emprestimo = valor * 0.24;
+
+            } else if (prazo == 'medio') {
+                taxa_emprestimo = valor * 0.16;
+
+            } else if (prazo == 'longo') {
+                taxa_emprestimo = valor * 0.10;
+            }
+
+            exibir.innerHTML += `Simulação ${Contador} – Para o empréstimo de R$${valor} no ${prazo} prazo será cobrado os juros de R$ ${taxa_emprestimo} ao ano<br>
+            `;
+
+            volte.style.display = 'block';
+
+        } else if (operacao == 'investimentos') {
+
+            let taxa_investimento = 0;
+
+            if (prazo == 'curto') {
+                taxa_investimento = valor * 0.05;
+
+            } else if (prazo == 'medio') {
+                taxa_investimento = valor * 0.08;
+
+            } else if (prazo == 'longo') {
+                taxa_investimento = valor * 0.12;
+            }
+
+            exibir.innerHTML += `Simulação ${Contador} – Investindo R$${valor} no ${prazo} prazo  o seu rendimento será de R$ ${taxa_investimento} ao ano<br>
+            `;
+            volte.style.display = 'block';
+        }
+
+    }
+    function voltar() {
+        exibir.innerHTML = '';
+        volte.style.display = 'none';
+        Contador = 0;
+    }
+</script>

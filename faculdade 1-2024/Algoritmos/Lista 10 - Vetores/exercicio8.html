@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+<body>
+  <span>Nome do aluno</span>
+  <input type="text" id="inputNomeAluno"><br>
+  <button onclick="cadastrarAlunos()">Cadastrar</button><br><br>
+  <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+  const listaAlunos = [];
+  function cadastrarAlunos(){
+    const aluno = inputNomeAluno.value;
+    listaAlunos.push(aluno);
+
+    inputNomeAluno.value = '';
+    div_resultado.innerHTML = '';
+
+    // ou seja vou começar do final da lista, e enquanto for maior que 0 esse numero irei decrementando 1 numero 
+    
+    for(let i = listaAlunos.length - 1; i >= 0; i -- ){
+      div_resultado.innerHTML += `${listaAlunos[i]}<br>`
+    }
+  }
+</script>

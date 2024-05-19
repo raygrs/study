@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+
+<body>
+  <span>Nome do lugar:</span>
+  <input type="text" id="inputBairroOndeMorou">
+  <button onclick="cadastrar()">Cadastrar bairro</button><br>
+  <span>Indique o local onde morou (a partir do 1)</span>
+  <input type="number" id="inputLocalOndeMorou">
+  <button onclick="relembrarMoradia()">Relembrar moradia</button>
+  <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+
+  const listaBairrosMorados = [];
+  function cadastrar() {
+    const bairro = inputBairroOndeMorou.value.toLowerCase();
+    const adicionandoNoArray = listaBairrosMorados.push(bairro) // aqui eu adiciono um item no meu array
+
+    console.log(listaBairrosMorados);
+    inputBairroOndeMorou.value = '';
+  }
+
+  function relembrarMoradia() {
+    const LocalOndeMorou = Number(inputLocalOndeMorou.value);
+
+    if(LocalOndeMorou < 1){
+      div_resultado.innerHTML = `O número deverá ser maior que 1`
+    }else{
+      for(let i = 0; i < listaBairrosMorados.length; i++){
+      if (LocalOndeMorou > listaBairrosMorados.length){
+        div_resultado.innerHTML = `Você ainda não morou num ${LocalOndeMorou}º bairro!`
+      }else{
+        div_resultado.innerHTML = `${listaBairrosMorados[LocalOndeMorou - 1]}`;
+      }
+
+    }
+    }
+
+  }
+</script>

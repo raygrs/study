@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos </title>
+</head>
+
+<body>
+
+  <h1>Criação de Clones do Naruto</h1>
+  <span>Quantidade de Chakra:</span>
+  <input type="number" id="input_quantidade_chakra"><br>
+  <span>Quantidade de clones desejada:</span>
+  <input type="number" id="input_quantidade_clones"><br>
+  <span>Quantidade de clones por linha:</span>
+  <input type="number" id="input_quantidade_clones_linha"><br>
+  <button onclick="criar()">Criar clones</button>
+  <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+  function criar() {
+    const quantidade_chakra = Number(input_quantidade_chakra.value);
+    const quantidade_clones = Number(input_quantidade_clones.value);
+    const quantidade_por_linha = Number(input_quantidade_clones_linha.value);
+
+    exibir.innerHTML = '';
+
+    if ((quantidade_chakra < 20 || quantidade_chakra > 5000) || (quantidade_clones > 250 || quantidade_clones < 0) || (quantidade_por_linha <= 0)) {
+      alert('ERRO NA ENTRADA DE DADOS – Energia tem que ser entre 20 e 5.000. Quantidade de Clones tem que ser entre 0 e 250. Quantidade de Clones por linha tem que ser maior que 0')
+    } else {
+      if (quantidade_chakra < (quantidade_clones * 20)) {
+        alert('A quantidade de chakra deve ser maior que a quantidade de clones multiplicado por 20')
+      } else {
+
+        const CONSUMO = 20;
+        let total = quantidade_chakra;
+
+        let qtd_linha = quantidade_clones / quantidade_por_linha;
+
+        for(let linha = 1; linha <= qtd_linha; linha++){
+          for (let clone = 0; clone < quantidade_clones; clone++) {
+          exibir.innerHTML += `<img src="https://www.otempo.com.br/content/dam/otempo/editorias/entretenimento/2023/1/entretenimento-naruto-1708790865.jpeg" width="100px">`
+          total = total - CONSUMO;
+
+          console.log(clone);
+        }
+        exibir.innerHTML += `<br>`;
+        }
+
+        exibir.innerHTML += `<br>ANÁLISE DA GERAÇÃO DE CLONES <br>
+        Chakra Inicial: ${quantidade_chakra} <br>
+        Quantidade de Clones: ${quantidade_clones}<br>
+        Sobra de Chakra: ${total}`
+
+        const percentual = (total / quantidade_chakra) * 100;
+
+        if(total > 1000 || (quantidade_clones > 50 && percentual > 20)){
+          exibir.innerHTML += `<br><br> PROVAVELMENTE VOCÊ VAI GANHAR`
+        }else if(total > 500 || (quantidade_clones >= 20 && quantidade_clones <= 50 && percentual >= 10)){
+          exibir.innerHTML += `A LUTA VAI SER MUITO BOA`
+        }else{
+          exibir.innerHTML += 'TORÇA PARA O ADVERSÁRIO SER FRAQUINHO'
+        }
+
+      }
+
+    }
+    // 
+
+  }
+</script>

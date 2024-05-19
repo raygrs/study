@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+<body>
+  <span>Quantos depósitos você fez no banco?</span>
+  <input type="number" id="input_deposito"><br>
+  <span>Valor do depósito</span>
+  <input type="number" id="input_deposito_valor"><br>
+  <button onclick="acompanhar()">Acompanhar grana</button>
+  <div id="exibir"></div>
+</body>
+</html>
+<script>
+  function acompanhar(){
+    const qtd_deposito = Number(input_deposito.value);
+    const valor_deposito = Number(input_deposito_valor.value);
+    const bonus_intervalo = 3; // Intervalo para o bônus
+    const bonus_percentual = 0.01; // 1% de bônus
+
+    exibir.innerHTML = '';
+    let total_guardado = 0;
+    let valor_acumulado = 0;
+
+    for (let i = 1; i <= qtd_deposito; i++){
+      let deposito_atual = valor_deposito + (valor_acumulado * bonus_percentual);
+
+      // Verifica se é um múltiplo do intervalo de bônus
+      if (i % bonus_intervalo === 0) {
+        valor_acumulado += valor_deposito;
+      }
+
+      exibir.innerHTML += `${i}° Mês: R$ ${deposito_atual.toFixed(2)} <br>`;
+      total_guardado += deposito_atual;
+    }
+
+    exibir.innerHTML += `Total guardado: R$${total_guardado.toFixed(2)}<br>`;
+  }
+</script>

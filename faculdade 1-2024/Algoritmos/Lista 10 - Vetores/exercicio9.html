@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+
+<body>
+  <span>Nome do projeto</span>
+  <input type="text" id="inputNomeProjeto"><br>
+  <button onclick="registrarProjetos()">Registrar</button>
+  <button onclick="mostrarProjetosInversos()">Mostrar Projetos</button>
+  <br><br>
+  <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+  const listaProjetos = [];
+  function registrarProjetos() {
+    const nomeProjeto = inputNomeProjeto.value;
+    listaProjetos.push(nomeProjeto);
+
+    let nivelExperiencia = '';
+    div_resultado.innerHTML = '';
+
+    for (let i = 0; i < listaProjetos.length; i++) {
+
+      if (i < 4) {
+        nivelExperiencia = 'Júnior';
+      } else if (i < 12) {
+        nivelExperiencia = 'Pleno'
+      }else{
+        nivelExperiencia = 'Sênior'
+      }
+
+      div_resultado.innerHTML = `Você já fez ${i + 1} projetos.Por isso você é um profissional ${nivelExperiencia}`
+    }
+
+    console.log(listaProjetos);
+  }
+
+  function mostrarProjetosInversos(){
+    const nomeProjeto = inputNomeProjeto.value;
+    listaProjetos.push(nomeProjeto);
+
+    div_resultado.innerHTML = '';
+
+    for(let ultimaPosicao = listaProjetos.length - 1; ultimaPosicao >= 0; ultimaPosicao --){
+      div_resultado.innerHTML += `${listaProjetos[ultimaPosicao]} <br>`
+    }
+  }
+</script>

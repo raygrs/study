@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+<body>
+  <span>Filme preferido:</span>
+  <input type="text" id="inputFilmesFavoritos"><br>
+  <button onclick="cadastrarFilmes()">Cadastrar</button><br><br>
+  <div id="div_resultado"></div>
+  
+</body>
+</html>
+<script>
+  const listaFilmesFavoritos = [];
+  function cadastrarFilmes(){
+    const filmeFavorito = inputFilmesFavoritos.value;
+
+    listaFilmesFavoritos.push(filmeFavorito);
+    inputFilmesFavoritos.value = '';
+
+    div_resultado.innerHTML = '';
+    // quando é sequência devemos limpara div antes do for pois se não o resultado se duplicará
+
+    for(let i = 0; i < listaFilmesFavoritos.length; i++){
+      if(i % 2 == 1){
+        div_resultado.innerHTML += `<span style="color: red;"> ${listaFilmesFavoritos [i]} </span> <br><br>`
+      }else{
+        div_resultado.innerHTML += `<span style="color: blue;"> ${listaFilmesFavoritos [i]} </span> <br><br>`
+      }
+    }
+
+    
+
+    
+  }
+</script>

@@ -33,54 +33,59 @@
 
 </html>
 <script>
-
   // arrumar no código a parte de laço de repetição e validação das horas 
   function assistirEpisodios() {
+
+    exibir.innerHTML = '';
+
     let episodio_inicial = Number(input_episodio_inicial.value);
     let tempo_disponivel = Number(input_tempo_disponivel.value);
     const unidade_tempo = select_unidade_tempo.value;
     const pular_abertura = select_pular_abertura.value;
     const pular_encerramento = select_pular_encerramento.value;
     let duracao_episodio = 24;
-    let qtd_episodios = tempo_disponivel / duracao_episodio;
-    let status = 'Abertura do Episódio';
+
 
     if (unidade_tempo == 'horas') {
       tempo_disponivel = tempo_disponivel * 60;
+      console.log(tempo_disponivel);
     }
+
     if (pular_abertura == 'sim' && pular_encerramento == 'sim') {
       duracao_episodio = 20;
     } else if (pular_abertura == 'sim' || pular_encerramento == 'sim') {
       duracao_episodio = 22;
     }
 
+    let qtd_episodios = tempo_disponivel / duracao_episodio;
+
     if (episodio_inicial >= 1 && episodio_inicial <= 1100) {
       // qual episódio o usuário está assistindo no momento
-      for (let episodio_atual = episodio_inicial; episodio_atual <= tempo_disponivel; episodio_atual++) {
-        exibir.innerHTML += `Episódio: ${episodio_atual}<br>`
+      for (let episodio_atual = 0; episodio_atual <= qtd_episodios; episodio_atual++) {
+        exibir.innerHTML += `Episódio: ${episodio_atual + episodio_inicial}<br>`
 
         //  Listar todos os minutos do episódio, de 1 minuto até o fim do tempo do episódio
         for (let minuto = 1; minuto <= tempo_disponivel; minuto++) {
-
-          //status de cada minuto
-          if (minuto >= 1 && minuto <= 2) {
-            if (pular_abertura == 'nao') {
-              status = 'Abertura do Episódio';
+          if (minuto <= duracao_episodio) {
+            let status = 'Assitindo Episodio';
+            //status de cada minuto
+            if (minuto >= 1 && minuto <= 2) {
+              if (pular_abertura == 'nao') {
+                status = 'Abertura do Episódio';
+              }
+            } else if (minuto >= duracao_episodio - 1) {
+              if (pular_encerramento == 'nao') {
+                status = 'Encerramento do Episódio';
+              }
             }
-          } else if (minuto > 2 && minuto <= 22) {
-            status = 'Assistindo  o Episódio'
-          } else if (minuto > 22 && minuto <= 24) {
-            if (pular_encerramento == 'nao') {
-              status = 'Encerramento do Episódio';
-            }
+            exibir.innerHTML += `Minuto ${minuto}: ${status} <br>`;
           }
-
-          exibir.innerHTML += `Minuto ${minuto}: ${status} <br>`;
         }
+        tempo_disponivel = tempo_disponivel - duracao_episodio;
 
-        exibir.innerHTML += `Fim dos episódios! <br>
-        Foram assistidos: ${qtd_episodios}<br>`
       }
+      exibir.innerHTML += `Fim dos episódios! <br>
+        Foram assistidos: ${qtd_episodios}<br>`
     } else {
       alert(`O número do episódio é inválido`)
     }

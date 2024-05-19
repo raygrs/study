@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Somar Números Pares</title>
+</head>
+
+<body>
+  <span>Digite um número entre 10 e 500:</span>
+  <input type="number" id="input_numero" min="10" max="500">
+
+  <button onclick="somarPares()">Somar Pares</button>
+  <div id="exibir"></div>
+
+  <script>
+    function somarPares() {
+      const numero = Number(document.getElementById('input_numero').value);
+      const exibir = document.getElementById('exibir');
+
+      if (numero < 10 || numero > 500) {
+        alert("Por favor, insira um número entre 10 e 500.");
+      }
+
+      let soma = 0;
+      let numerosPares = "";
+
+      for (let i = 1; i <= numero; i++) {
+        if (i % 2 === 0) {
+          numerosPares += i + "<br>";
+          soma += i;
+        }
+      }
+      exibir.innerHTML = numerosPares + `Soma dos pares: ${soma}`;
+    }
+  </script>
+</body>
+
+</html>

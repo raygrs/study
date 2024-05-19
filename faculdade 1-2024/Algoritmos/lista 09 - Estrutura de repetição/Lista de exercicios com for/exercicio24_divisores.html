@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <span>Digite um número:</span>
+  <input type="number" id="input_numero">
+
+  <button onclick="ver()">Ver Divisores</button>
+  <div id="exibir"></div>
+</body>
+</html>
+<script>
+  function ver(){
+    const numero = Number (input_numero.value);
+
+    exibir.innerHTML += `Divisores de ${numero}: <br>`
+    for (let i = 1; i <= numero; i++){
+      
+      if(numero % i == 0){
+        exibir.innerHTML += `${i} <br>`
+      }
+    }
+  }
+</script>

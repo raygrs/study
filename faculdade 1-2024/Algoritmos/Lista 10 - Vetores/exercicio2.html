@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmos</title>
+</head>
+
+<body>
+  <h2>Viagens</h2>
+  <span>Destino de viagem:</span>
+  <input type="text" id="inputDestinoViagem">
+  <button onclick="adicionarFrutaNaLista()">Adicionar</button>
+  <button onclick="primeiraViagem()">Primeira Viagem</button>
+  <button onclick="terceiraViagem()">Terceira Viagem</button>
+  <button onclick="ultimaViagem()">Última Viagem</button>
+  <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+  const listaDestinosAdicionados = [];
+
+  function validarCampos() {
+    if (listaDestinosAdicionados.length == 0) {
+      div_resultado.innerHTML = `Ainda não viajou`
+    }
+  }
+  function adicionarFrutaNaLista() {
+    const destinosAdicionados = inputDestinoViagem.value;
+    listaDestinosAdicionados.push(destinosAdicionados);
+    console.log(listaDestinosAdicionados);
+  }
+
+  function primeiraViagem() {
+    validarCampos()
+    div_resultado.innerHTML = `O primeiro local cadastrado foi: ${listaDestinosAdicionados[0]}`
+    console.log(listaDestinosAdicionados);
+  }
+
+  function terceiraViagem() {
+    validarCampos()
+    if (listaDestinosAdicionados.length < 3) {
+      div_resultado.innerHTML = `Ainda não fez uma terceira viagem`
+    } else {
+      div_resultado.innerHTML = `A sua última viagem foi: ${listaDestinosAdicionados[listaDestinosAdicionados.length - 1]}`
+    }
+  }
+
+  function ultimaViagem() {
+    validarCampos();
+    div_resultado.innerHTML = `A sua última viagem foi: ${listaDestinosAdicionados[listaDestinosAdicionados.length - 1]}`
+    console.log(listaDestinosAdicionados)
+  }
+
+
+
+
+
+
+
+</script>
